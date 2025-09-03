@@ -3,14 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <th:block th:replace="~{fragments/fragments :: style}"></th:block>
     <title>Pizzeria</title>
   </head>
   <body>
-    <h1>Pizzas</h1>
+    <div th:insert="~{fragments/fragments :: navbar}"></div>
 
-    <div th:each="pizza : ${pizzas}">
-      <img th:src="@{'/img/' + ${pizza.img}}" alt="" width="100" />
-      <h3>[[${pizza}]]</h3>
+    <h1 class="text-center">Pizze</h1>
+
+    <div class="container my-5">
+      <div th:if="${pizzas.size()} > 0">
+        <th:block
+          th:replace="~{fragments/fragments :: table('Immagine', 'Nome', 'Descrizione', 'Prezzo', ${pizzas})}"
+        ></th:block>
+      </div>
+      <div th:unless="${pizzas.size()} > 0">
+        <h3>Pizzas list is empty...</h3>
+      </div>
     </div>
   </body>
 </html>

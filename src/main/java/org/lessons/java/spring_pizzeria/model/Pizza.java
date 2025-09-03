@@ -81,6 +81,12 @@ public class Pizza {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Pizza [id=" + id + ", name=" + name + ", description=" + description + ", img=" + img + ", price="
+                + price + "]";
+    }
+
 
 
     

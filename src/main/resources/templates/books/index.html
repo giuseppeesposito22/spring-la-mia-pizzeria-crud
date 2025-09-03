@@ -8,6 +8,9 @@
   <body>
     <h1>Pizzas</h1>
 
-    <h3 th:each="pizza : ${pizzas}">[[${pizza}]]</h3>
+    <div th:each="pizza : ${pizzas}">
+      <img th:src="@{'/img/' + ${pizza.img}}" alt="" width="100" />
+      <h3>[[${pizza}]]</h3>
+    </div>
   </body>
 </html>

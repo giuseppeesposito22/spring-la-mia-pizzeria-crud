@@ -17,15 +17,15 @@ public class Pizza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message = "The name must not be null")
+    @NotBlank(message = "Il campo nome non può essere vuoto")
     private String name;
 
 
     private String description;
     private String img;
 
-    @NotNull
-    @Min( value = 0)
+    @NotNull(message = "Il campo prezzo non può essere vuoto")
+    @Min( value = 0, message = "Il prezzo non può essere negativo")
     private Double price;
 
 
